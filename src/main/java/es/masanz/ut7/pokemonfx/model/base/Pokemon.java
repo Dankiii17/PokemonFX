@@ -2,11 +2,13 @@ package es.masanz.ut7.pokemonfx.model.base;
 
 import es.masanz.ut7.pokemonfx.model.enums.Stats;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.UUID;
 
 // TODO 06: Crear vuestros propios pokemon que extiendan esta clase
-public abstract class Pokemon {
+public abstract class Pokemon implements Cloneable{
 
     protected String id;
     protected String apodo;
@@ -191,5 +193,161 @@ public abstract class Pokemon {
         return puntosExp;
     }
 
+
     // TODO 01: Implementar clone. El clonado deberá generar un pokemon con nuevos IV.
+    @Override
+    public Pokemon clone() {
+        try {
+            Pokemon clone = (Pokemon) super.clone();
+
+
+            clone.regenerarIVs();
+
+
+            clone.ataques = new LinkedHashMap<>();
+            for (Map.Entry<String, Ataque> entry : this.ataques.entrySet()) {
+
+                clone.ataques.put(entry.getKey(), entry.getValue());
+            }
+
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
+
+    private void regenerarIVs() {
+        this.hpIV = (int) (Math.random() * 32);
+        this.ataqueIV = (int) (Math.random() * 32);
+        this.defensaIV = (int) (Math.random() * 32);
+        this.velocidadIV = (int) (Math.random() * 32);
+        this.ataqueEspecialIV = (int) (Math.random() * 32);
+        this.defensaEspecialIV = (int) (Math.random() * 32);
+    }
+
+    public int getAtaqueEspecialIV() {
+        return ataqueEspecialIV;
+    }
+
+    public int getDefensaEspecialIV() {
+        return defensaEspecialIV;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public int getHpBase() {
+        return hpBase;
+    }
+
+    public int getAtaqueBase() {
+        return ataqueBase;
+    }
+
+    public int getDefensaBase() {
+        return defensaBase;
+    }
+
+    public int getVelocidadBase() {
+        return velocidadBase;
+    }
+
+    public int getAtaqueEspecialBase() {
+        return ataqueEspecialBase;
+    }
+
+    public int getDefensaEspecialBase() {
+        return defensaEspecialBase;
+    }
+
+    public int getHpIV() {
+        return hpIV;
+    }
+
+    public int getAtaqueIV() {
+        return ataqueIV;
+    }
+
+    public int getDefensaIV() {
+        return defensaIV;
+    }
+
+    public int getVelocidadIV() {
+        return velocidadIV;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setHpBase(int hpBase) {
+        this.hpBase = hpBase;
+    }
+
+    public void setDefensaBase(int defensaBase) {
+        this.defensaBase = defensaBase;
+    }
+
+    public void setAtaqueBase(int ataqueBase) {
+        this.ataqueBase = ataqueBase;
+    }
+
+    public void setDefensaEspecialBase(int defensaEspecialBase) {
+        this.defensaEspecialBase = defensaEspecialBase;
+    }
+
+    public void setHpIV(int hpIV) {
+        this.hpIV = hpIV;
+    }
+
+    public void setAtaqueIV(int ataqueIV) {
+        this.ataqueIV = ataqueIV;
+    }
+
+    public void setAtaqueEspecialBase(int ataqueEspecialBase) {
+        this.ataqueEspecialBase = ataqueEspecialBase;
+    }
+
+    public void setVelocidadBase(int velocidadBase) {
+        this.velocidadBase = velocidadBase;
+    }
+
+    public void setDefensaIV(int defensaIV) {
+        this.defensaIV = defensaIV;
+    }
+
+    public void setDefensaEspecialIV(int defensaEspecialIV) {
+        this.defensaEspecialIV = defensaEspecialIV;
+    }
+
+    public void setExpBase(int expBase) {
+        this.expBase = expBase;
+    }
+
+    public void setVelocidadIV(int velocidadIV) {
+        this.velocidadIV = velocidadIV;
+    }
+
+    public void setAtaqueEspecialIV(int ataqueEspecialIV) {
+        this.ataqueEspecialIV = ataqueEspecialIV;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public void setNumPokedex(String numPokedex) {
+        this.numPokedex = numPokedex;
+    }
+
+    public void setPuntosExp(int puntosExp) {
+        this.puntosExp = puntosExp;
+    }
+
+    public void setAtaques(LinkedHashMap<String, Ataque> ataques) {
+        this.ataques = ataques;
+    }
 }
+
+

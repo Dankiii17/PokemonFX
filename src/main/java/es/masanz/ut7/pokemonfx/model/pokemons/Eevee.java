@@ -17,8 +17,21 @@ public class Eevee extends Pokemon {
 
     @Override
     public Pokemon pokemonAEvolucionar() {
-        // Puede evolucionar en diferentes Pokémon dependiendo de la piedra o la situación
-        return new Vaporeon(this.nivel);  // Ejemplo con Vaporeon
+        Eevee original = (Eevee) this.clone();
+
+        Vaporeon vaporeon = new Vaporeon(original.getNivel());
+
+        vaporeon.setApodo(original.getApodo());
+        vaporeon.setPuntosExp(original.getPuntosExp());
+        vaporeon.setHpIV(original.getHpIV());
+        vaporeon.setAtaqueIV(original.getAtaqueIV());
+        vaporeon.setDefensaIV(original.getDefensaIV());
+        vaporeon.setVelocidadIV(original.getVelocidadIV());
+        vaporeon.setAtaqueEspecialIV(original.getAtaqueEspecialIV());
+        vaporeon.setDefensaEspecialIV(original.getDefensaEspecialIV());
+        vaporeon.setHpActual(original.getHpActual());
+
+        return vaporeon;
     }
 
     @Override

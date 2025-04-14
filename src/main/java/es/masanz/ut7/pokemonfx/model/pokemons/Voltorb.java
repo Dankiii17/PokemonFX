@@ -18,9 +18,21 @@ public class Voltorb extends Pokemon implements Electrico {
 
     @Override
     public Pokemon pokemonAEvolucionar() {
-        // Evoluciona a Electrode
-        Pokemon pokemon = new Electrode(this.nivel);
-        return pokemon;
+        Voltorb original = (Voltorb) this.clone();
+
+        Electrode electrode = new Electrode(original.getNivel());
+
+        electrode.setApodo(original.getApodo());
+        electrode.setPuntosExp(original.getPuntosExp());
+        electrode.setHpIV(original.getHpIV());
+        electrode.setAtaqueIV(original.getAtaqueIV());
+        electrode.setDefensaIV(original.getDefensaIV());
+        electrode.setVelocidadIV(original.getVelocidadIV());
+        electrode.setAtaqueEspecialIV(original.getAtaqueEspecialIV());
+        electrode.setDefensaEspecialIV(original.getDefensaEspecialIV());
+        electrode.setHpActual(original.getHpActual());
+
+        return electrode;
     }
 
     @Override

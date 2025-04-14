@@ -18,8 +18,7 @@ public class Charmander extends Pokemon implements Fuego {
 
     @Override
     public Pokemon pokemonAEvolucionar() {
-        Pokemon pokemon = new Squirtle(this.nivel);
-        return pokemon;
+       return  null;
     }
 
     @Override
@@ -33,10 +32,10 @@ public class Charmander extends Pokemon implements Fuego {
 
         Ataque lanzallamas = new Ataque("lanzallamas", 95, 100, Tipo.FUEGO, true, 10);
         asignarAtaque(lanzallamas.getNombre(), lanzallamas);
-/*
+
         Ataque cuchillada = new Ataque("cuchillada", 70, 100, Tipo.NORMAL, false, 20);
         asignarAtaque(cuchillada.getNombre(), cuchillada);
-*/
+
     }
 
 }

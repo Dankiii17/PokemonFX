@@ -2,13 +2,12 @@ package es.masanz.ut7.pokemonfx.manager;
 
 import es.masanz.ut7.pokemonfx.model.base.Evento;
 import es.masanz.ut7.pokemonfx.model.base.Mapa;
+import es.masanz.ut7.pokemonfx.model.map.*;
 import es.masanz.ut7.pokemonfx.model.pokemons.Bulbasaur;
 import es.masanz.ut7.pokemonfx.model.base.Entrenador;
 import es.masanz.ut7.pokemonfx.model.enums.CollisionType;
 import es.masanz.ut7.pokemonfx.model.enums.TileType;
 import es.masanz.ut7.pokemonfx.model.fx.NPC;
-import es.masanz.ut7.pokemonfx.model.map.Ruta1;
-import es.masanz.ut7.pokemonfx.model.map.Ruta2;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,9 +28,16 @@ public class MapManager {
     public static void initMapas(){
         Mapa ruta1 = new Ruta1();
         Mapa ruta2 = new Ruta2();
+        /*Mapa ruta3 = new Ruta3();
+        Mapa ruta4 = new Ruta4();
+        Mapa ruta5 = new Ruta5();*/
+
         mapas = new HashMap<>();
         mapas.put(ruta1.getNombre(), ruta1);
         mapas.put(ruta2.getNombre(), ruta2);
+      /*  mapas.put(ruta3.getNombre(), ruta3);
+        mapas.put(ruta4.getNombre(), ruta4);
+        mapas.put(ruta5.getNombre(), ruta5);*/
     }
 
     // Settea las variables necesarias en funcion de la ruta seleccionada

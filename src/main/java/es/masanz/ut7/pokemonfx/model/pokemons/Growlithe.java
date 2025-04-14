@@ -18,9 +18,20 @@ public class Growlithe extends Pokemon implements Fuego {
 
     @Override
     public Pokemon pokemonAEvolucionar() {
-        // Evoluciona a Arcanine
-        Pokemon pokemon = new Arcanine(this.nivel);
-        return pokemon;
+        Growlithe original = (Growlithe) this.clone();
+        Arcanine arcanine = new Arcanine(original.nivel);
+
+        arcanine.setApodo(original.getApodo());
+        arcanine.setPuntosExp(original.getPuntosExp());
+        arcanine.setHpIV(original.getHpIV());
+        arcanine.setAtaqueIV(original.getAtaqueIV());
+        arcanine.setDefensaIV(original.getDefensaIV());
+        arcanine.setVelocidadIV(original.getVelocidadIV());
+        arcanine.setAtaqueEspecialIV(original.getAtaqueEspecialIV());
+        arcanine.setDefensaEspecialIV(original.getDefensaEspecialIV());
+        arcanine.setHpActual(original.getHpActual());
+
+        return arcanine;
     }
 
     @Override

@@ -13,7 +13,12 @@ public class Electrode extends Pokemon implements Electrico {
 
     @Override
     public int nivelEvolucion() {
-        return 0;  // Ya es la forma evolutiva final
+        return -1;
+    }
+
+    @Override
+    public Pokemon pokemonAEvolucionar() {
+        return null;
     }
 
     @Override
